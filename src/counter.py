@@ -46,6 +46,7 @@ def read_counter(name):
     # Return the counter and a 200_OK return code.
     return {"Count": f"{COUNTERS[name]}"}, status.HTTP_200_OK
 
+
 @app.route('/counters/<name>', methods=['DELETE'])
 def delete_counter(name):
     # Create a route for method DELETE on endpoint /counters/<name>.
@@ -57,4 +58,3 @@ def delete_counter(name):
 
     # Return empty and a 204 no content code.
     return "", status.HTTP_204_NO_CONTENT
-
