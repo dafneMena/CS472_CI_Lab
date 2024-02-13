@@ -36,7 +36,7 @@ def update_counter(name):
 
 @app.route('/counters/<name>', methods=['GET'])
 def read_counter(name):
-    # Create a route for method PUT on endpoint /counters/<name>.
+    # Create a route for method GET on endpoint /counters/<name>.
     app.logger.info(f"Request to read counter: {name}")
     global COUNTERS
     # Checks the name is not in counters
@@ -45,3 +45,16 @@ def read_counter(name):
 
     # Return the counter and a 200_OK return code.
     return {"Count": f"{COUNTERS[name]}"}, status.HTTP_200_OK
+
+@app.route('/counters/<name>', methods=['DELETE'])
+def delete_counter(name):
+    # Create a route for method DELETE on endpoint /counters/<name>.
+    app.logger.info(f"Request to delete counter: {name}")
+    global COUNTERS
+
+    # Delete the counter
+    del COUNTERS[name]
+
+    # Return empty and a 204 no content code.
+    return "", status.HTTP_204_NO_CONTENT
+
