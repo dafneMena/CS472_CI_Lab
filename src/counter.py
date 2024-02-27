@@ -50,7 +50,8 @@ def read_counter(name):
 @app.route('/counters/<name>', methods=['DELETE'])
 def delete_counter(name):
     # Create a route for method DELETE on endpoint /counters/<name>.
-    app.logger.info(f"Request to delete counter: {name}")
+    app.logger.info(f"Request to delete counter: {name}"
+                    )
     global COUNTERS
 
     # Delete the counter
